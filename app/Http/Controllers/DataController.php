@@ -165,6 +165,7 @@ class DataController extends Controller
 
             // if ( $title !== $bar['name'] ) {
             //     $bar2 = array(
+
             //         "name" => $title,
             //         "value" => 1
             //     );
