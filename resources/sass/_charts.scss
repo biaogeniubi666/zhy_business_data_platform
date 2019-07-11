@@ -1,0 +1,57 @@
+// Area Chart
+.chart-area {
+  position: relative;
+  height: 15rem;
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    height: 20rem;
+  }
+}
+
+// Bar Chart
+.chart-bar {
+  position: relative;
+  height: 15rem;
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    height: 20rem;
+  }
+}
+
+// Pie Chart
+.chart-pie {
+  position: relative;
+  height: 15rem;
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    height: calc(20rem - 43px) !important;
+  }
+}
+
+//map
+.gd-map {
+  position: relative;
+  width: 100%;
+  height: 15rem;
+  @include media-breakpoint-up(md) {
+    height: 20rem;
+  }
+}
+
+.chart-box {
+  position: relative;
+  width:auto;
+  height: 100%;
+  @include media-breakpoint-up(md) {
+    height: 20rem;
+  }
+}
+
+.china-map {
+  position: relative;
+  width: 100%;
+  height: 15rem;
+  @include media-breakpoint-up(md) {
+    height: 20rem;
+  }
+}
