@@ -11,7 +11,11 @@
 <body>
         
 <div class="jumbotron">
+<<<<<<< HEAD
         <h1>Hello, world!</h1>
+=======
+        <h1>Hello, world!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+>>>>>>> 4dc76f5b7826cf905352268f0743a9ce7b313ff0
         <p>...</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
