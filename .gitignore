@@ -9,8 +9,16 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+<<<<<<< HEAD
 /laradock
 .autoproxy
 /databackups
 
 
+=======
+<<<<<<< HEAD
+/laradock
+=======
+/laradock/
+>>>>>>> 4dc76f5b7826cf905352268f0743a9ce7b313ff0
+>>>>>>> b1c626be81690723e3b31af8d597ced0b009254d
