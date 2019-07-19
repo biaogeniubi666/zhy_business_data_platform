@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\UnitData;   // 加上用户模型文件路径，才能找到MODELS
 use Illuminate\Support\Facades\DB;  // 加上db操作文件
 
+
+
 class DataController extends Controller
 {
     //
@@ -50,6 +52,7 @@ class DataController extends Controller
 
         return view('index2',[
         // 业务量A数据返回主页
+        // 'pythontest' => $result ,
         'businessA' => $businessA ,
         'businessB' => $businessB ,
         'gz_shiyebu' => $gz_shiyebu  ,
@@ -100,28 +103,21 @@ class DataController extends Controller
     }
 
     public function business_area () {
-        $guangzhoushi = DB::table('unit_data')
-        ->where('实施地市','广州市')->count();
 
-        $foshanshi = DB::table('unit_data')
-        ->where('实施地市','佛山市')->count();
+        // $result = exec("python3 /var/www/app/Python/testbiaoge1.py");
 
-        $shantoushi = DB::table('unit_data')
-        ->where('实施地市','汕头市')->count();
+        // $arr = array('key' => 'value');
 
-        $kunmingshi = DB::table('unit_data')
-        ->where('实施地市','昆明市')->count();
+        // $arr = array("a" => "biaoge" ,"b" => "niubi");
 
-        $wuhanshi = DB::table('unit_data')
-        ->where('实施地市','武汉市')->count();
+        $arr = 2;                                                                          
 
-        return [
-            $guangzhoushi,
-            $foshanshi ,
-            $shantoushi , 
-            $wuhanshi ,
-            $kunmingshi,
-        ];
+        $result1 = ppython("testbiaoge1::go",$arr);
+        $result2 = ppython("testbiaoge1::go",$arr);
+        
+        return 
+           [$result1,$result2]
+        ;
     }
 
     public function business_area_2 () {

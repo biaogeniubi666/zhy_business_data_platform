@@ -37,7 +37,7 @@
       </div>
 
       <div class="head">
-        <h1>业务可视化平台</h1>
+        <h1>综合院业务数据可视化平台</h1>
         <div class="weather">
           <img src="picture/weather.png"><span>多云转小雨</span><span id="showTime"></span>
         </div>
@@ -69,7 +69,7 @@
               <div class="boxfoot"></div>
             </div>
             <div class="boxall" style="height: 3.2rem">
-              <div class="alltitle">模块标题样式2</div>
+              <div class="alltitle">地市业务</div>
               <div class="allnav" id="echart2"></div>
               <div class="boxfoot"></div>
             </div>
@@ -104,18 +104,57 @@
             </div>
           </li>
           <li>
-                <div class="boxall" style="height:3.4rem">
-              <div class="alltitle">模块标题样式3</div>
+            <div class="boxall" style="height:3.4rem">
+              <div class="alltitle">A\B值增长趋势</div>
               <div class="allnav" id="echart4"></div>
               <div class="boxfoot"></div>
             </div>
             <div class="boxall" style="height: 3.2rem">
-              <div class="alltitle">模块标题样式4</div>
-              <div class="allnav" id="echart5"></div>
+              <div class="alltitle">核心业务数据（万元）</div>
+                
+                <div class="bar2">
+                  <div class="barbox3">
+                    <ul class="clearfix">
+                        <li class="pulll_left counter">{{ $businessB }}</li>
+                        <li class="pulll_left counter">{{ $businessB }}</li>
+                        <li class="pulll_left counter">{{ $businessA }}</li>
+                        <li class="pulll_left counter">{{ $businessA }}</li>
+                    </ul>
+                  </div>
+                  <div class="barbox4">
+                    <ul class="clearfix">
+                      <li class="pulll_left">总利润 </li>
+                      <li class="pulll_left">收支差</li>
+                      <li class="pulll_left">自做业务量</li>
+                      <li class="pulll_left">自做业务比例</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="bar2">
+                    <div class="barbox3">
+                      <ul class="clearfix">
+                          <li class="pulll_left counter">{{ $businessA }}</li>
+                          <li class="pulll_left counter">{{ $businessB }}</li>
+                          <li class="pulll_left counter">{{ $businessA }}</li>
+                          <li class="pulll_left counter">{{ $businessA }}</li>
+                      </ul>
+                    </div>
+                    <div class="barbox4">
+                      <ul class="clearfix">
+                        <li class="pulll_left">回款 </li>
+                        <li class="pulll_left">回款比例</li>
+                        <li class="pulll_left">缺口金额</li>
+                        <li class="pulll_left">缺口比例</li>
+                      </ul>
+                    </div>
+                </div>
+
+                
               <div class="boxfoot"></div>
             </div>
             <div class="boxall" style="height: 3rem">
-              <div class="alltitle">模块标题样式5</div>
+              <div class="alltitle">模块标题样式6</div>
               <div class="allnav" id="echart6"></div>
               <div class="boxfoot"></div>
             </div>

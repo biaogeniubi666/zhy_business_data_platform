@@ -6,7 +6,7 @@ echarts_4();
 echarts_31();
 echarts_32();
 echarts_33();
-echarts_5();
+// echarts_5();
 echarts_6();
 function echarts_1([data1,data2,data3,data4,data5]) {
         // 基于准备好的dom，初始化echarts实例
@@ -84,7 +84,7 @@ function echarts_1([data1,data2,data3,data4,data5]) {
 		{
         type: 'bar',
         data: [data1,data2,data3,data4,data5],
-        barWidth:'35%', //柱子宽度
+        barWidth:'25%', //柱子宽度
        // barGap: 1, //柱子之间间距
         itemStyle: {
             normal: {
@@ -115,6 +115,7 @@ function echarts_1_start(){
         }
     })
     }
+
 
 function echarts_2() {
         // 基于准备好的dom，初始化echarts实例
@@ -306,7 +307,8 @@ function echarts_5() {
             myChart.resize();
         });
     }
-	
+
+
 function echarts_4() {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart4'));

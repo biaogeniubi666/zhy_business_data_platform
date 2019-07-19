@@ -39,8 +39,8 @@ a:hover{ color:#06c; text-decoration: none!important}
 
 .pulll_left{float:left;}
 .pulll_right{float:right;}
-/*谷哥滚动条样式*/
 
+/*谷哥滚动条样式*/
   ::-webkit-scrollbar {width:5px;height:5px;position:absolute}
   /* ::-webkit-scrollbar {display: none}; */
   ::-webkit-scrollbar-thumb {background-color:#5bc0de}
@@ -89,7 +89,10 @@ a:hover{ color:#06c; text-decoration: none!important}
 .boxfoot:after{ position:absolute; width: .1rem; height: .1rem;  content: "";border-bottom: 2px solid #02a6b5; bottom: 0;}
 
 .bar{background:rgba(101,132,226,.1); padding: .15rem;}
+.bar2{background:rgba(101, 132, 226, 0); padding: .15rem;}
 .barbox li,.barbox2 li{ width:50%; text-align: center; position: relative; z-index: 100;}
+.barbox3 li{ width:25%; text-align: center; position: relative; z-index: 100;}
+.barbox4 li{ width:25%; text-align: center; position: relative; z-index: 100;}
 .barbox:before,
 .barbox:after{ position:absolute; width: .3rem; height: .1rem; content: ""; }
 .barbox:before{border-left: 2px solid #02a6b5;left: 0;border-top: 2px solid #02a6b5; }
@@ -98,8 +101,11 @@ a:hover{ color:#06c; text-decoration: none!important}
 .barbox li:first-child:before{ position:absolute; content: ""; height:50%; width: 1px; background: rgba(255,255,255,.2); right: 0; top: 25%;}
 
 .barbox{  border: 1px solid rgba(25,186,139,.17); position: relative;}
-.barbox li{ font-size: .7rem; color: #ffeb7b; padding: .05rem 0;  font-family:electronicFont; font-weight: bold;}
+.barbox li{ font-size: .7rem; color: #eeff00; padding: .05rem 0;  font-family:electronicFont; font-weight: bold;}
 .barbox2 li{ font-size: .19rem; color:rgba(255,255,255,.7); padding-top: .1rem;}
+.barbox3 li{ font-size: .3rem; color: rgb(22, 219, 121); padding: .05rem 0;  font-family:electronicFont; font-weight: bold;}
+.barbox4 li{ font-size: .19rem; color:rgba(255,255,255,.7); padding-top: .1rem;}
+
 
 .map{  position:relative; height: 7.2rem; z-index: 9;}
 .map4{ width: 200%; height:7rem;  position: relative; left: -50%; top: 4%; margin-top: .2rem; z-index: 5;}
