@@ -5,11 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-<<<<<<< HEAD
 use App\Models\AirQualityData;
-=======
-use Illuminate\Support\Facades\DB;  // 加上db操作文件
->>>>>>> fe448d0daf09c90f4869754b683c5e7f1671dcd5
 
 class Kernel extends ConsoleKernel
 {
@@ -33,17 +29,9 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->call(function()
-<<<<<<< HEAD
         {   
             // use Illuminate\Support\Facades\DB;  // 加上db操作文件
             // DB::insert('insert into air_quality_data (area, tmp, hum, aft, fav, co2, fd) values (?, ?, ?, ?, ?, ?, ?)', ["chashuijian", 1.3, 0.6 ,5.3 ,4.4, 3.8, 1.1]);
-=======
-        {
-            DB::insert('insert into air_quality_data (id, area, tmp, hum, aft, fav, co2, fd) values (?, ?, ?, ?, ?, ?, ?, ?)', [1, "chashuijian", 1.3, 0.6 ,5.3 ,4.4, 3.8, 1.1]);
-
-        })->everyFiveMinutes();
-    }   
->>>>>>> fe448d0daf09c90f4869754b683c5e7f1671dcd5
 
            AirQualityData::create([
                'id', 'area'=> 'Diyishiyebu', 

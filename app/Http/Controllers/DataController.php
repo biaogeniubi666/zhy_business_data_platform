@@ -130,46 +130,8 @@ class DataController extends Controller
             $bar2 = array_count_values($bar);  
         }
 
-<<<<<<< HEAD
         $bar3 = array_values($bar2); 
         return  array($bar1,$bar3);
-=======
-
-
-        return  array($bar1,$bar3); 
-        // foreach ($bar as $dishi) {
-        //     foreach ($titles as $title) {
-        //         if ($title == $dishi ) {
-        //             $title->count();
-        //         }
-        //     }
-        // }
-        
-            // if (! in_array($title,$bar->$name) ) {
-            //     array_push($bar,$title);
-            // }
-            // else {
-            //     # code...
-            // }
-
-            // if ( $title !== $bar['name'] ) {
-            //     $bar2 = array(
-            //         "name" => $title,
-            //         "value" => 1
-            //     );
-            //     array_push($bar,$bar2);
-            // }
-
-            // if (! in_array($title,$bar) ) {
-            //     // title不在bar里就加到bar里
-            //     array_push($bar,$title);
-            // }
-
-            // title已经列出了所有出现的地市，包括重复、从里面提取？
-            // array_push($bar2,$titlecount);
-            // $titlecount根据$bar[i]不同而不同，且有顺序对应关系。
-            // 每种title出现了几次
->>>>>>> fe448d0daf09c90f4869754b683c5e7f1671dcd5
     }
 
 }
