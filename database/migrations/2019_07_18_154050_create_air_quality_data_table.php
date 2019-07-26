@@ -16,13 +16,13 @@ class CreateAirQualityDataTable extends Migration
         Schema::create('air_quality_data', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->text('area');
-            $table->float('tmp');
-            $table->float('hum');
-            $table->float('aft');
-            $table->float('fav');
-            $table->float('co2');
-            $table->float('fd');
+            $table->text('area')->nullable();
+            $table->float('tmp')->nullable();
+            $table->float('hum')->nullable();
+            $table->float('aft')->nullable();
+            $table->float('fav')->nullable();
+            $table->float('co2')->nullable();
+            $table->float('fd')->nullable();
         });
     }
 
