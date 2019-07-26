@@ -1,4 +1,4 @@
-
+// 主页中间的中国地图
 $(function () {
     // map();
     getdata();

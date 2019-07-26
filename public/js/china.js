@@ -1,3 +1,4 @@
+// 主页中间的中国地图的底图
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.

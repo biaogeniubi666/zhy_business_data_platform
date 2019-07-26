@@ -24,7 +24,7 @@ Route::get('/', 'DataController@total_business_volume')->name('total');
 Route::get('/pie', 'DataController@a11')->name('pie');
 
 Route::get('/types_of_industry', 'DataController@types_of_industry')->name('types');
-Route::get('/business_area', 'DataController@business_area')->name('map');
+Route::get('/get_well_data', 'DataController@well_data');
 Route::get('/business_area2', 'DataController@business_area_2')->name('test');
 
 

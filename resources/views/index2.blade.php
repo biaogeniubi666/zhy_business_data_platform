@@ -115,15 +115,15 @@
                 <div class="bar2">
                   <div class="barbox3">
                     <ul class="clearfix">
-                        <li class="pulll_left counter">{{ $businessB }}</li>
-                        <li class="pulll_left counter">{{ $businessB }}</li>
-                        <li class="pulll_left counter">{{ $businessA }}</li>
-                        <li class="pulll_left counter">{{ $businessA }}</li>
+                        <li class="pulll_left counter">{{ $tmp }}</li>
+                        <li class="pulll_left counter">{{ $hum }}</li>
+                        <li class="pulll_left counter">{{ $aft }}</li>
+                        <li class="pulll_left counter">{{ $co2 }}</li>
                     </ul>
                   </div>
                   <div class="barbox4">
                     <ul class="clearfix">
-                      <li class="pulll_left">总利润 </li>
+                      <li class="pulll_left">总利润</li>
                       <li class="pulll_left">收支差</li>
                       <li class="pulll_left">自做业务量</li>
                       <li class="pulll_left">自做业务比例</li>
@@ -134,10 +134,10 @@
                 <div class="bar2">
                     <div class="barbox3">
                       <ul class="clearfix">
-                          <li class="pulll_left counter">{{ $businessA }}</li>
-                          <li class="pulll_left counter">{{ $businessB }}</li>
-                          <li class="pulll_left counter">{{ $businessA }}</li>
-                          <li class="pulll_left counter">{{ $businessA }}</li>
+                          <li class="pulll_left counter" id="tmp"></li>
+                          <li class="pulll_left counter" id="hum"></li>
+                          <li class="pulll_left counter" id="aft"></li>
+                          <li class="pulll_left counter" id="fav"></li>
                       </ul>
                     </div>
                     <div class="barbox4">

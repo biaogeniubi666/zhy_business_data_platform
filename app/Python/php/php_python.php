@@ -6,7 +6,7 @@
 // License: http://www.apache.org/licenses/LICENSE-2.0
 //-----------------------------------------------------------
 
-define("LAJP_IP", "172.25.0.4");     
+define("LAJP_IP", "172.22.0.4");     
 
 //PHP端IP-位于php-fpm容器内，IP地址为172.25.0.5
 //Python端IP-python端位于workspace容器IP地址172.25.0.4 主机地址10.0.75.1

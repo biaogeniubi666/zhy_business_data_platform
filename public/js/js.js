@@ -1,14 +1,17 @@
 ﻿
 $(function () {
 echarts_1_start();
+well_data();
+setInterval(function(){well_data();}, 60000);
 echarts_2();
 echarts_4();
 echarts_31();
 echarts_32();
 echarts_33();
-// echarts_5();
 echarts_6();
+
 function echarts_1([data1,data2,data3,data4,data5]) {
+        // 主页左上角第一个业务类别柱状图
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart1'));
 
@@ -115,8 +118,29 @@ function echarts_1_start(){
         }
     })
     }
+function well_data()
+    {
+        $.ajax({
+            url:'/get_well_data',
+            dataType:'json',
+            type:'get',
+            success:function(data) { 
+                // let datajihe1 = data ;
+                document.getElementById("tmp").innerHTML =data[0];
+                document.getElementById("hum").innerHTML =data[1];
+                document.getElementById("aft").innerHTML =data[2];
+                document.getElementById("fav").innerHTML =data[3];
+                document.getElementById("co2").innerHTML =data[4];
+                document.getElementById("fd").innerHTML =data[5];
+                
+                // for ( var i = 0; i<datajihe1.length; i++) {
+                //     document.getElementById("tmp").innerHTML = datajihe1[i];
+                // }
+            }
+        })
+    }
 
-
+// ------------------------未开发--------------------- //
 function echarts_2() {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart2'));
@@ -212,103 +236,6 @@ function echarts_2() {
             myChart.resize();
         });
     }
-function echarts_5() {
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echart5'));
-
-       option = {
-  //  backgroundColor: '#00265f',
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
-        }
-    },
-    
-    grid: {
-        left: '0%',
-		top:'10px',
-        right: '0%',
-        bottom: '2%',
-       containLabel: true
-    },
-    xAxis: [{
-        type: 'category',
-      		data: ['浙江', '上海', '江苏', '广东', '北京', '深圳', '安徽', '四川'],
-        axisLine: {
-            show: true,
-         lineStyle: {
-                color: "rgba(255,255,255,.1)",
-                width: 1,
-                type: "solid"
-            },
-        },
-		
-        axisTick: {
-            show: false,
-        },
-		axisLabel:  {
-                interval: 0,
-               // rotate:50,
-                show: true,
-                splitNumber: 15,
-                textStyle: {
- 					color: "rgba(255,255,255,.6)",
-                    fontSize: '12',
-                },
-            },
-    }],
-    yAxis: [{
-        type: 'value',
-        axisLabel: {
-           //formatter: '{value} %'
-			show:true,
-			 textStyle: {
- 					color: "rgba(255,255,255,.6)",
-                    fontSize: '12',
-                },
-        },
-        axisTick: {
-            show: false,
-        },
-        axisLine: {
-            show: true,
-            lineStyle: {
-                color: "rgba(255,255,255,.1	)",
-                width: 1,
-                type: "solid"
-            },
-        },
-        splitLine: {
-            lineStyle: {
-               color: "rgba(255,255,255,.1)",
-            }
-        }
-    }],
-    series: [{
-        type: 'bar',
-        data: [2, 3, 3, 9, 15, 12, 6, 4, 6, 7, 4, 10],
-        barWidth:'35%', //柱子宽度
-       // barGap: 1, //柱子之间间距
-        itemStyle: {
-            normal: {
-                color:'#2f89cf',
-                opacity: 1,
-				barBorderRadius: 5,
-            }
-        }
-    }
-	]
-};
-      
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-        window.addEventListener("resize",function(){
-            myChart.resize();
-        });
-    }
-
-
 function echarts_4() {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart4'));
@@ -789,8 +716,6 @@ position:function(p){   //其中p为当前鼠标的位置
             myChart.resize();
         });
     }
-				
-	
 })
 
 
