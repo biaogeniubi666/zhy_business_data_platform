@@ -1,10 +1,9 @@
 ﻿
 $(function () {
 echarts_1_start();
-well_data();
-setInterval(function(){well_data();}, 60000);
+well_data();setInterval(function(){well_data();}, 60000);
 echarts_2();
-echarts_4();
+echarts_4();setInterval(function(){echarts_4();}, 60000);
 echarts_31();
 echarts_32();
 echarts_33();
@@ -125,17 +124,11 @@ function well_data()
             dataType:'json',
             type:'get',
             success:function(data) { 
-                // let datajihe1 = data ;
-                document.getElementById("tmp").innerHTML =data[0];
-                document.getElementById("hum").innerHTML =data[1];
-                document.getElementById("aft").innerHTML =data[2];
-                document.getElementById("fav").innerHTML =data[3];
-                document.getElementById("co2").innerHTML =data[4];
-                document.getElementById("fd").innerHTML =data[5];
-                
-                // for ( var i = 0; i<datajihe1.length; i++) {
-                //     document.getElementById("tmp").innerHTML = datajihe1[i];
-                // }
+                // blade模板中需要调用几次就在js中引用几次，调用顺序和赋值都不能乱否则可能显示不出来
+                document.getElementById("tmp").innerHTML = data[0];
+                document.getElementById("hum").innerHTML = data[1];
+                document.getElementById("hum1").innerHTML = data[1];
+                document.getElementById("co2").innerHTML = data[3];
             }
         })
     }
@@ -236,169 +229,188 @@ function echarts_2() {
             myChart.resize();
         });
     }
+
+
 function echarts_4() {
-        // 基于准备好的dom，初始化echarts实例
+    function echarts_4_start(){
+            $.ajax({
+                url:'/tem_hum_chart',
+                dataType:'json',
+                type:'get',
+                success:function([c4data1,c4data2]){ 
+                    echarts_4_data([c4data1,c4data2]);
+                }
+            })
+        }
+    function echarts_4_data([c4data1,c4data2]) {
+    // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart4'));
 
-    option = {
-	    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            lineStyle: {
-                color: '#dddc6b'
-            }
-        }
-    },
-		    legend: {
-    top:'0%',
-        data:['安卓','IOS'],
-                textStyle: {
-           color: 'rgba(255,255,255,.5)',
-			fontSize:'12',
-        }
-    },
-    grid: {
-        left: '10',
-		top: '30',
-        right: '10',
-        bottom: '10',
-        containLabel: true
-    },
-
-    xAxis: [{
-        type: 'category',
-        boundaryGap: false,
-axisLabel:  {
-                textStyle: {
- 					color: "rgba(255,255,255,.6)",
-					fontSize:12,
-                },
-            },
-        axisLine: {
-			lineStyle: { 
-				color: 'rgba(255,255,255,.2)'
-			}
-
-        },
-
-   data: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24']
-
-    }, {
-
-        axisPointer: {show: false},
-        axisLine: {  show: false},
-        position: 'bottom',
-        offset: 20,
-
-       
-
-    }],
-
-    yAxis: [{
-        type: 'value',
-        axisTick: {show: false},
-        axisLine: {
-            lineStyle: {
-                color: 'rgba(255,255,255,.1)'
+        option = {
+            tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                lineStyle: {
+                    color: '#dddc6b'
+                }
             }
         },
-       axisLabel:  {
-                textStyle: {
- 					color: "rgba(255,255,255,.6)",
-					fontSize:12,
+                legend: {
+        top:'0%',
+            data:['温度','湿度'],
+                    textStyle: {
+            color: 'rgba(255,255,255,.5)',
+                fontSize:'12',
+            }
+        },
+        grid: {
+            left: '10',
+            top: '30',
+            right: '10',
+            bottom: '10',
+            containLabel: true
+        },
+
+        xAxis: [{
+            type: 'category',
+            boundaryGap: false,
+    axisLabel:  {
+                    textStyle: {
+                        color: "rgba(255,255,255,.6)",
+                        fontSize:12,
+                    },
                 },
+            axisLine: {
+                lineStyle: { 
+                    color: 'rgba(255,255,255,.2)'
+                }
+
             },
 
-        splitLine: {
+    data: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']
+
+        }, {
+
+            axisPointer: {show: false},
+            axisLine: {  show: false},
+            position: 'bottom',
+            offset: 20,
+
+        
+
+        }],
+
+        yAxis: [{
+            type: 'value',
+            axisTick: {show: false},
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,.1)'
+                }
+            },
+        axisLabel:  {
+                    textStyle: {
+                        color: "rgba(255,255,255,.6)",
+                        fontSize:12,
+                    },
+                },
+
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(255,255,255,.1)'
+                }
+            }
+        }],
+        series: [
+            {
+            name: '温度',
+            type: 'line',
+            smooth: true,
+            symbol: 'circle',
+            symbolSize: 5,
+            showSymbol: false,
             lineStyle: {
-                 color: 'rgba(255,255,255,.1)'
-            }
-        }
-    }],
-    series: [
-		{
-        name: '安卓',
-        type: 'line',
-         smooth: true,
-        symbol: 'circle',
-        symbolSize: 5,
-        showSymbol: false,
-        lineStyle: {
-			
-            normal: {
-				color: '#0184d5',
-                width: 2
-            }
-        },
-        areaStyle: {
-            normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    offset: 0,
-                    color: 'rgba(1, 132, 213, 0.4)'
-                }, {
-                    offset: 0.8,
-                    color: 'rgba(1, 132, 213, 0.1)'
-                }], false),
-                shadowColor: 'rgba(0, 0, 0, 0.1)',
-            }
-        },
-			itemStyle: {
-			normal: {
-				color: '#0184d5',
-				borderColor: 'rgba(221, 220, 107, .1)',
-				borderWidth: 12
-			}
-		},
-        data: [3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4,3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4]
+                
+                normal: {
+                    color: '#0184d5',
+                    width: 2
+                }
+            },
+            areaStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(1, 132, 213, 0.4)'
+                    }, {
+                        offset: 0.8,
+                        color: 'rgba(1, 132, 213, 0.1)'
+                    }], false),
+                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                }
+            },
+                itemStyle: {
+                normal: {
+                    color: '#0184d5',
+                    borderColor: 'rgba(221, 220, 107, .1)',
+                    borderWidth: 12
+                }
+            },
+            data: c4data1
 
-    }, 
-{
-        name: 'IOS',
-        type: 'line',
-        smooth: true,
-        symbol: 'circle',
-        symbolSize: 5,
-        showSymbol: false,
-        lineStyle: {
-			
-            normal: {
-				color: '#00d887',
-                width: 2
-            }
-        },
-        areaStyle: {
-            normal: {
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    offset: 0,
-                    color: 'rgba(0, 216, 135, 0.4)'
-                }, {
-                    offset: 0.8,
-                    color: 'rgba(0, 216, 135, 0.1)'
-                }], false),
-                shadowColor: 'rgba(0, 0, 0, 0.1)',
-            }
-        },
-			itemStyle: {
-			normal: {
-				color: '#00d887',
-				borderColor: 'rgba(221, 220, 107, .1)',
-				borderWidth: 12
-			}
-		},
-        data: [5, 3, 5, 6, 1, 5, 3, 5, 6, 4, 6, 4, 8, 3, 5, 6, 1, 5, 3, 7, 2, 5, 1, 4]
+        }, 
+        {
+                name: '湿度',
+                type: 'line',
+                smooth: true,
+                symbol: 'circle',
+                symbolSize: 5,
+                showSymbol: false,
+                lineStyle: {
+                    
+                    normal: {
+                        color: '#00d887',
+                        width: 2
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(0, 216, 135, 0.4)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(0, 216, 135, 0.1)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                    }
+                },
+                    itemStyle: {
+                    normal: {
+                        color: '#00d887',
+                        borderColor: 'rgba(221, 220, 107, .1)',
+                        borderWidth: 12
+                    }
+                },
+                data: c4data2
 
-    }, 
-	
-		 ]
+            }, 
+        
+            ]
 
-};
+        };
       
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-        window.addEventListener("resize",function(){
-            myChart.resize();
-        });
+            window.addEventListener("resize",function(){
+                myChart.resize();
+            });
+        }
+    echarts_4_start();
     }
+
+
+
+
 function echarts_6() {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart6'));

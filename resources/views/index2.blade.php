@@ -105,7 +105,7 @@
           </li>
           <li>
             <div class="boxall" style="height:3.4rem">
-              <div class="alltitle">A\B值增长趋势</div>
+              <div class="alltitle">温湿度变化趋势</div>
               <div class="allnav" id="echart4"></div>
               <div class="boxfoot"></div>
             </div>
@@ -136,8 +136,8 @@
                       <ul class="clearfix">
                           <li class="pulll_left counter" id="tmp"></li>
                           <li class="pulll_left counter" id="hum"></li>
-                          <li class="pulll_left counter" id="aft"></li>
-                          <li class="pulll_left counter" id="fav"></li>
+                          <li class="pulll_left counter" id="hum1"></li>
+                          <li class="pulll_left counter" id="co2"></li>
                       </ul>
                     </div>
                     <div class="barbox4">
