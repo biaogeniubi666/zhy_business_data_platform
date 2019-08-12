@@ -1,0 +1,9 @@
+*{padding: 0;margin: 0;}
+			li{list-style: none;}
+			.box{width: 800px;height: 300px;border: 1px solid red;margin: 80px auto;position: relative;}
+			.box_wheel{width: 800px;height: 300px;overflow: hidden;}
+			.btn{width: 50px;height: 60px;background: bisque;line-height: 60px;text-align: center;color: red;font-size: 30px;cursor: pointer;}
+			.btn_left{position: absolute;left: -60px;top: 50%;margin-top: -30px;}
+			.btn_right{position: absolute;right: -60px;top: 50%;margin-top: -30px;}
+			.box_ul{height: 300px;}
+			.box_ul li{width:260px;height: 300px;margin-right: 10px;float: left;line-height: 300px;text-align: center;}

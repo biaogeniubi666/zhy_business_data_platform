@@ -91,8 +91,8 @@
               </div>
               <div class="barbox2">
                 <ul class="clearfix">
-                  <li class="pulll_left">新风功率 </li>
-                  <li class="pulll_left">排风功率 </li>
+                  <li class="pulll_left">2019年部门A值总量（万） </li>
+                  <li class="pulll_left">2019年部门B值总量（万）</li>
                 </ul>
               </div>
             </div>
@@ -110,7 +110,7 @@
               <div class="boxfoot"></div>
             </div>
             <div class="boxall" style="height: 3.2rem">
-              <div class="alltitle">核心健康数据</div>
+              <div class="alltitle">核心业务数据（万元）</div>
                 
                 <div class="bar2">
                   <div class="barbox3">
@@ -123,10 +123,10 @@
                   </div>
                   <div class="barbox4">
                     <ul class="clearfix">
-                      <li class="pulll_left">温度</li>
-                      <li class="pulll_left">湿度</li>
-                      <li class="pulll_left">空气流速</li>
-                      <li class="pulll_left">二氧化碳浓度</li>
+                      <li class="pulll_left">总利润</li>
+                      <li class="pulll_left">收支差</li>
+                      <li class="pulll_left">自做业务量</li>
+                      <li class="pulll_left">自做业务比例</li>
                     </ul>
                   </div>
                 </div>
@@ -142,10 +142,10 @@
                     </div>
                     <div class="barbox4">
                       <ul class="clearfix">
-                        <li class="pulll_left">温度 </li>
-                        <li class="pulll_left">湿度</li>
-                        <li class="pulll_left">湿度2</li>
-                        <li class="pulll_left">二氧化碳浓度</li>
+                        <li class="pulll_left">回款 </li>
+                        <li class="pulll_left">回款比例</li>
+                        <li class="pulll_left">缺口金额</li>
+                        <li class="pulll_left">缺口比例</li>
                       </ul>
                     </div>
                 </div>
