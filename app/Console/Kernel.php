@@ -31,13 +31,14 @@ class Kernel extends ConsoleKernel
         $schedule->call(function()
         {   
             // use Illuminate\Support\Facades\DB;  // 加上db操作文件
-            // DB::insert('insert into air_quality_data (area, tmp, hum, aft, fav, co2, fd) values (?, ?, ?, ?, ?, ?, ?)', ["chashuijian", 1.3, 0.6 ,5.3 ,4.4, 3.8, 1.1]);
+            //  DB::insert('insert into air_quality_data (area, tmp, hum, aft, fav, co2, fd) values (?, ?, ?, ?, ?, ?, ?)', ["chashuijian", 1.3, 0.6 ,5.3 ,4.4, 3.8, 1.1]);
 
            AirQualityData::create([
                'id', 'area'=> 'Diyishiyebu', 
                'tmp'=>randomFloat(19, 24), 
                'hum'=> randomFloat(40, 70),
-               'aft'=>ppython("testbiaoge1::go",6, 9),  //ppython函数为测试函数，利用python函数运算将最终结果转换为php数值。
+               'aft'=> randomFloat(6, 9),
+            //    'aft'=>ppython("testbiaoge1::go",6, 9),  //ppython函数为测试函数，利用python函数运算将最终结果转换为php数值。
                'fav'=> randomFloat(30, 50), 
                'co2'=>randomFloat(6, 9),
                'fd'=> randomFloat(1, 3) 

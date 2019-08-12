@@ -329,13 +329,6 @@ $(function () {
             dataType:'json',
             type:'get',
             success:function(data) { 
-                // var resdata = [];
-                // for (var i = 0; i < 5; i++) {
-                //     resdata.push({
-                //         name: datajihe[i].name,
-                //         value: geoCoord.concat(data[i].value)
-                //     })
-                // }
                 let datajihe1 = data ;
                 var resdata = [];
                 for ( var i = 0; i<datajihe1[0].length; i++) {
@@ -348,8 +341,5 @@ $(function () {
         })
     };
     
-    
-
-
-    })
+})
 

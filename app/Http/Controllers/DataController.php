@@ -111,7 +111,16 @@ class DataController extends Controller
         $fd = AirQualityData::pluck('fd')->last();
         
         return 
-           [$tmp, $hum, $aft , $fav, $co2 , $fd]
+           [$tmp, $hum, $aft ,$co2, $fav, $fd]
+        ;
+    }
+
+    public function tem_hum_chart() {
+        $maxid = AirQualityData::max('id') - 10;
+        $tem_forchart = AirQualityData::where('id', '>', $maxid)->pluck('tmp');
+        $hum_forchart = AirQualityData::where('id', '>', $maxid)->pluck('hum');
+        return 
+           [$tem_forchart, $hum_forchart]
         ;
     }
 
