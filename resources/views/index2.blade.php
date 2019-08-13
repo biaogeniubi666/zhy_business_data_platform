@@ -115,9 +115,9 @@
                 <div class="bar2">
                   <div class="barbox3">
                     <ul class="clearfix">
-                        <li class="pulll_left counter">{{ $tmp }}</li>
-                        <li class="pulll_left counter">{{ $hum }}</li>
-                        <li class="pulll_left counter">{{ $aft }}</li>
+                        <li class="pulll_left counter">{{ $temp }}</li>
+                        <li class="pulll_left counter">{{ $humi }}</li>
+                        <li class="pulll_left counter">{{ $pm25 }}</li>
                         <li class="pulll_left counter">{{ $co2 }}</li>
                     </ul>
                   </div>
@@ -125,7 +125,7 @@
                     <ul class="clearfix">
                       <li class="pulll_left">温度</li>
                       <li class="pulll_left">湿度</li>
-                      <li class="pulll_left">空气流速</li>
+                      <li class="pulll_left">PM2.5</li>
                       <li class="pulll_left">二氧化碳浓度</li>
                     </ul>
                   </div>
@@ -134,18 +134,18 @@
                 <div class="bar2">
                     <div class="barbox3">
                       <ul class="clearfix">
+                          <li class="pulll_left counter">{{ $ch2o }}</li>
+                          <li class="pulll_left counter">{{ $voc }}</li>
                           <li class="pulll_left counter" id="tmp"></li>
                           <li class="pulll_left counter" id="hum"></li>
-                          <li class="pulll_left counter" id="hum1"></li>
-                          <li class="pulll_left counter" id="co2"></li>
                       </ul>
                     </div>
                     <div class="barbox4">
                       <ul class="clearfix">
-                        <li class="pulll_left">温度 </li>
-                        <li class="pulll_left">湿度</li>
-                        <li class="pulll_left">湿度2</li>
-                        <li class="pulll_left">二氧化碳浓度</li>
+                        <li class="pulll_left">甲醛浓度</li>
+                        <li class="pulll_left">空气可挥发物</li>
+                        <li class="pulll_left">温度ajax</li>
+                        <li class="pulll_left">湿度ajax</li>
                       </ul>
                     </div>
                 </div>
