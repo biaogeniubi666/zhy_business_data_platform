@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\UnitData;   // 加上用户模型文件路径，才能找到MODELS
 use App\Models\AirQualityData;
+use App\Models\AirSix;
 use Illuminate\Support\Facades\DB;  // 加上db操作文件
 
 
@@ -40,12 +40,12 @@ class DataController extends Controller
         ->where('项目类型','其他')->count();
         // 项目类型结束
 
-        $tmp = AirQualityData::pluck('tmp')->last();
-        $hum = AirQualityData::pluck('hum')->last();
-        $aft = AirQualityData::pluck('aft')->last();
-        $co2 = AirQualityData::pluck('co2')->last();
-        $fd = AirQualityData::pluck('fd')->last();
-
+        $temp = AirSix::pluck('TEMP')->last();
+        $humi = AirSix::pluck('HUMI')->last();
+        $pm25 = AirSix::pluck('PM25')->last();
+        $co2 = AirSix::pluck('CO2')->last();
+        $ch2o = AirSix::pluck('CH2O')->last();
+        $voc = AirSix::pluck('VOC')->last();
 
         return view('index2',[
         // 业务量A数据返回主页
@@ -53,11 +53,12 @@ class DataController extends Controller
         // 'pythontest' => $result ,
         'businessA' => $businessA ,
         'businessB' => $businessB ,
-        'tmp' => $tmp , 
-        'hum' => $hum , 
-        'aft' => $aft , 
+        'temp' => $temp , 
+        'humi' => $humi , 
+        'pm25' => $pm25 , 
         'co2' => $co2 , 
-        'fd' => $fd , 
+        'ch2o' => $ch2o , 
+        'voc' => $voc , 
 
         // 项目类型数据返回主页
         'type_of_roudian'=>$type_of_roudian ,  
