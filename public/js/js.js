@@ -127,12 +127,9 @@ function well_data()
                 // blade模板中需要调用几次就在js中引用几次，调用顺序和赋值都不能乱否则可能显示不出来
                 document.getElementById("tmp").innerHTML = data[0];
                 document.getElementById("hum").innerHTML = data[1];
-                document.getElementById("hum1").innerHTML = data[1];
-                document.getElementById("co2").innerHTML = data[3];
             }
         })
     }
-
 // ------------------------未开发--------------------- //
 function echarts_2() {
         // 基于准备好的dom，初始化echarts实例
@@ -229,8 +226,6 @@ function echarts_2() {
             myChart.resize();
         });
     }
-
-
 function echarts_4() {
     function echarts_4_start(){
             $.ajax({
@@ -407,10 +402,6 @@ function echarts_4() {
         }
     echarts_4_start();
     }
-
-
-
-
 function echarts_6() {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('echart6'));
