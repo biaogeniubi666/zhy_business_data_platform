@@ -1,6 +1,6 @@
 <html><head>
 <meta charset="utf-8">
-<title>www.husonghe.com</title>
+<title>www.biaoge.com</title>
 <style>
 html {
   height: 100%;
@@ -173,181 +173,183 @@ var trans = {
   }
 };
 
-(function() {
+$ (function() {
   "use strict";
-  var threeD = function(param) {
-    this.transIn = {};
-    this.transOut = {};
-    this.transIn.vtx = (param.vtx);
-    this.transIn.sz = (param.sz);
-    this.transIn.rot = (param.rot);
-    this.transIn.pos = (param.pos);
-  };
-
-  threeD.prototype.vupd = function() {
-    this.transOut = trans.steps(
-
-      this.transIn.vtx,
-      this.transIn.sz,
-      this.transIn.rot,
-      this.transIn.pos,
-      cam.disp
-    );
-  };
-
-  var Build = function() {
-    this.vel = 0.04;
-    this.lim = 360;
-    this.diff = 200;
-    this.initPos = 100;
-    this.toX = _x;
-    this.toY = _y;
-    this.go();
-  };
-
-  Build.prototype.go = function() {
-    this.canvas = document.getElementById("canv");
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
-    this.$ = canv.getContext("2d");
-    this.$.globalCompositeOperation = 'source-over';
-    this.varr = [];
-    this.dist = [];
-    this.calc = [];
-
-    for (var i = 0, len = num; i < len; i++) {
-      this.add();
-    }
-
-    this.rotObj = {
-      x: 0,
-      y: 0,
-      z: 0
+    var threeD = function(param) {
+      this.transIn = {};
+      this.transOut = {};
+      this.transIn.vtx = (param.vtx);
+      this.transIn.sz = (param.sz);
+      this.transIn.rot = (param.rot);
+      this.transIn.pos = (param.pos);
     };
-    this.objSz = {
-      x: w / 5,
-      y: h / 5,
-      z: w / 5
-    };
-  };
 
-  Build.prototype.add = function() {
-    this.varr.push(new threeD({
-      vtx: {
-        x: rnd(),
-        y: rnd(),
-        z: rnd()
-      },
-      sz: {
+    threeD.prototype.vupd = function() {
+      this.transOut = trans.steps(
+
+        this.transIn.vtx,
+        this.transIn.sz,
+        this.transIn.rot,
+        this.transIn.pos,
+        cam.disp
+      );
+    };
+
+    var Build = function() {
+      this.vel = 0.04;
+      this.lim = 360;
+      this.diff = 200;
+      this.initPos = 100;
+      this.toX = _x;
+      this.toY = _y;
+      this.go();
+    };
+
+    Build.prototype.go = function() {
+      this.canvas = document.getElementById("canv");
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+      this.$ = canv.getContext("2d");
+      this.$.globalCompositeOperation = 'source-over';
+      this.varr = [];
+      this.dist = [];
+      this.calc = [];
+
+      for (var i = 0, len = num; i < len; i++) {
+        this.add();
+      }
+
+      this.rotObj = {
         x: 0,
         y: 0,
         z: 0
-      },
-      rot: {
-        x: 20,
-        y: -20,
-        z: 0
-      },
-      pos: {
-        x: this.diff * Math.sin(360 * Math.random() * Math.PI / 180),
-        y: this.diff * Math.sin(360 * Math.random() * Math.PI / 180),
-        z: this.diff * Math.sin(360 * Math.random() * Math.PI / 180)
-      }
-    }));
-    this.calc.push({
-      x: 360 * Math.random(),
-      y: 360 * Math.random(),
-      z: 360 * Math.random()
-    });
-  };
-
-  Build.prototype.upd = function() {
-    cam.obj.x += (this.toX - cam.obj.x) * 0.05;
-    cam.obj.y += (this.toY - cam.obj.y) * 0.05;
-  };
-
-  Build.prototype.draw = function() {
-    this.$.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    cam.upd();
-    this.rotObj.x += 0.1;
-    this.rotObj.y += 0.1;
-    this.rotObj.z += 0.1;
-
-    for (var i = 0; i < this.varr.length; i++) {
-      for (var val in this.calc[i]) {
-        if (this.calc[i].hasOwnProperty(val)) {
-          this.calc[i][val] += this.vel;
-          if (this.calc[i][val] > this.lim) this.calc[i][val] = 0;
-        }
-      }
-
-      this.varr[i].transIn.pos = {
-        x: this.diff * Math.cos(this.calc[i].x * Math.PI / 180),
-        y: this.diff * Math.sin(this.calc[i].y * Math.PI / 180),
-        z: this.diff * Math.sin(this.calc[i].z * Math.PI / 180)
       };
-      this.varr[i].transIn.rot = this.rotObj;
-      this.varr[i].transIn.sz = this.objSz;
-      this.varr[i].vupd();
-      if (this.varr[i].transOut.p < 0) continue;
-      var g = this.$.createRadialGradient(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p, this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2);
-      this.$.globalCompositeOperation = 'lighter';
-      g.addColorStop(0, 'hsla(255, 255%, 255%, 1)');
-      g.addColorStop(.5, 'hsla(' + (i + 2) + ',85%, 40%,1)');
-      g.addColorStop(1, 'hsla(' + (i) + ',85%, 40%,.5)');
-      this.$.fillStyle = g;
-      this.$.beginPath();
-      this.$.arc(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2, 0, Math.PI * 2, false);
-      this.$.fill();
-      this.$.closePath();
-    }
-  };
-  Build.prototype.anim = function() {
-    window.requestAnimationFrame = (function() {
-      return window.requestAnimationFrame ||
-        function(callback, element) {
-          window.setTimeout(callback, 1000 / 60);
+      this.objSz = {
+        x: w / 5,
+        y: h / 5,
+        z: w / 5
+      };
+    };
+
+    Build.prototype.add = function() {
+      this.varr.push(new threeD({
+        vtx: {
+          x: rnd(),
+          y: rnd(),
+          z: rnd()
+        },
+        sz: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        rot: {
+          x: 20,
+          y: -20,
+          z: 0
+        },
+        pos: {
+          x: this.diff * Math.sin(360 * Math.random() * Math.PI / 180),
+          y: this.diff * Math.sin(360 * Math.random() * Math.PI / 180),
+          z: this.diff * Math.sin(360 * Math.random() * Math.PI / 180)
+        }
+      }));
+      this.calc.push({
+        x: 360 * Math.random(),
+        y: 360 * Math.random(),
+        z: 360 * Math.random()
+      });
+    };
+
+    Build.prototype.upd = function() {
+      cam.obj.x += (this.toX - cam.obj.x) * 0.05;
+      cam.obj.y += (this.toY - cam.obj.y) * 0.05;
+    };
+
+    Build.prototype.draw = function() {
+      this.$.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      cam.upd();
+      this.rotObj.x += 0.1;
+      this.rotObj.y += 0.1;
+      this.rotObj.z += 0.1;
+
+      for (var i = 0; i < this.varr.length; i++) {
+        for (var val in this.calc[i]) {
+          if (this.calc[i].hasOwnProperty(val)) {
+            this.calc[i][val] += this.vel;
+            if (this.calc[i][val] > this.lim) this.calc[i][val] = 0;
+          }
+        }
+
+        this.varr[i].transIn.pos = {
+          x: this.diff * Math.cos(this.calc[i].x * Math.PI / 180),
+          y: this.diff * Math.sin(this.calc[i].y * Math.PI / 180),
+          z: this.diff * Math.sin(this.calc[i].z * Math.PI / 180)
         };
-    })();
-    var anim = function() {
-      this.upd();
-      this.draw();
+        this.varr[i].transIn.rot = this.rotObj;
+        this.varr[i].transIn.sz = this.objSz;
+        this.varr[i].vupd();
+        if (this.varr[i].transOut.p < 0) continue;
+        var g = this.$.createRadialGradient(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p, this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2);
+        this.$.globalCompositeOperation = 'lighter';
+        g.addColorStop(0, 'hsla(255, 255%, 255%, 1)');
+        g.addColorStop(.5, 'hsla(' + (i + 2) + ',85%, 40%,1)');
+        g.addColorStop(1, 'hsla(' + (i) + ',85%, 40%,.5)');
+        this.$.fillStyle = g;
+        this.$.beginPath();
+        this.$.arc(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2, 0, Math.PI * 2, false);
+        this.$.fill();
+        this.$.closePath();
+      }
+    };
+    
+    Build.prototype.anim = function() {
+      window.requestAnimationFrame = (function() {
+        return window.requestAnimationFrame ||
+          function(callback, element) {
+            window.setTimeout(callback, 1000 / 60);
+          };
+      })();
+      var anim = function() {
+        this.upd();
+        this.draw();
+        window.requestAnimationFrame(anim);
+
+      }.bind(this);
       window.requestAnimationFrame(anim);
+    };
 
-    }.bind(this);
-    window.requestAnimationFrame(anim);
-  };
+    Build.prototype.run = function() {
+      this.anim();
 
-  Build.prototype.run = function() {
-    this.anim();
-
-    window.addEventListener('mousemove', function(e) {
-      this.toX = (e.clientX - this.canvas.width / 2) * -0.8;
-      this.toY = (e.clientY - this.canvas.height / 2) * 0.8;
-    }.bind(this));
-    window.addEventListener('touchmove', function(e) {
-      e.preventDefault();
-      this.toX = (e.touches[0].clientX - this.canvas.width / 2) * -0.8;
-      this.toY = (e.touches[0].clientY - this.canvas.height / 2) * 0.8;
-    }.bind(this));
-    window.addEventListener('mousedown', function(e) {
-      for (var i = 0; i < 100; i++) {
-        this.add();
-      }
-    }.bind(this));
-    window.addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      for (var i = 0; i < 100; i++) {
-        this.add();
-      }
-    }.bind(this));
-  };
-  var app = new Build();
-  app.run();
-})();
-window.addEventListener('resize', function() {
-  canvas.width = w = window.innerWidth;
-  canvas.height = h = window.innerHeight;
-}, false);
+      window.addEventListener('mousemove', function(e) {
+        this.toX = (e.clientX - this.canvas.width / 2) * -0.8;
+        this.toY = (e.clientY - this.canvas.height / 2) * 0.8;
+      }.bind(this));
+      window.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        this.toX = (e.touches[0].clientX - this.canvas.width / 2) * -0.8;
+        this.toY = (e.touches[0].clientY - this.canvas.height / 2) * 0.8;
+      }.bind(this));
+      window.addEventListener('mousedown', function(e) {
+        for (var i = 0; i < 100; i++) {
+          this.add();
+        }
+      }.bind(this));
+      window.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        for (var i = 0; i < 100; i++) {
+          this.add();
+        }
+      }.bind(this));
+      window.addEventListener('resize', function(e) {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+      }, false);
+    };
+    
+    var app = new Build();
+    app.run();
+});
 </script>
 </body></html>
