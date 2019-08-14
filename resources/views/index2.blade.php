@@ -27,6 +27,7 @@
 <script type="text/javascript" src="js/echarts.min.js"></script>  
 <script language="JavaScript" src="js/js.js"></script> 
 {{-- <script src="js/app.js"></script> --}}
+{{-- 1 --}}
 
 <body>
       <div class="canvas" style="opacity: .2">
