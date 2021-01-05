@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@types/echarts": "^4.1.9",
-        "axios": "^0.18",
+        "axios": "^0.21",
         "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
         "echarts": "^4.2.1",
